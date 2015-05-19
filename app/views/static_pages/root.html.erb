@@ -4,8 +4,7 @@
 
 <ul id="tv-main"></ul>
 
-<script>
-  $(document).ready(function () {
 
-  });
+<script id="categories">
+  <%= Marker.pluck(:category).to_json.html_safe %>
 </script>
