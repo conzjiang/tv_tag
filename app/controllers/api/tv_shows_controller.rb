@@ -1,4 +1,8 @@
 class Api::TvShowsController < ApplicationController
+  def index
+    render json: TvShow.all
+  end
+
   def create
     results = fetch_from_tmdb.results
     new_shows = TvShow.create(results)

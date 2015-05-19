@@ -13,7 +13,27 @@
     },
 
     render: function () {
-      var buttons = this.categories.map(function (category, i) {
+      return (
+        <div>
+          {this.buttons()}
+          <ul>{this.shows()}</ul>
+        </div>
+      );
+    },
+
+    componentDidMount: function () {
+      $.ajax({
+        type: "get",
+        url: "/api/tv_shows",
+        dataType: "json",
+        success: function (data) {
+          this.setState({ shows: data });
+        }.bind(this)
+      });
+    },
+
+    buttons: function () {
+      return this.categories.map(function (category, i) {
         return (
           <FetchTv
             category={category}
@@ -21,22 +41,17 @@
             key={"category-" + i} />
         );
       }.bind(this));
-
-      var shows = this.state.shows.map(function (show) {
-        return (<TvShow show={show} key={show.id} />);
-      });
-
-      return (
-        <div>
-          {buttons}
-          <ul>{shows}</ul>
-        </div>
-      );
     },
 
     addShows: function (shows) {
       this.setState({
         shows: this.state.shows.concat(shows)
+      });
+    },
+
+    shows: function () {
+      return this.state.shows.map(function (show) {
+        return (<TvShow show={show} key={show.id} />);
       });
     }
   });

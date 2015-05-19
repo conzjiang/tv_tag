@@ -4,5 +4,5 @@
 
 $(document).ready(function () {
   var App = TvTag.App;
-  React.render(<App />, document.getElementById("actions"));
+  React.render(<App />, document.getElementById("main"));
 });
