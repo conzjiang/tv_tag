@@ -22,3 +22,5 @@ end
 
 gem 'react-rails'
 gem 'figaro'
+gem 'rest-client'
+gem 'addressable'
