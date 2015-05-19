@@ -1,4 +1,6 @@
+//= require ./components/utils
 //= require ./components/fetchTv
+//= require ./components/tagForm
 //= require ./components/tvShow
 //= require_tree ./components
 

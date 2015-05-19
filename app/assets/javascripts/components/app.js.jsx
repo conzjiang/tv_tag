@@ -3,7 +3,7 @@
   var FetchTv = TvTag.FetchTv;
   var TvShow = TvTag.TvShow;
 
-  var App = TvTag.App = React.createClass({
+  var App = TvTag.App = TvTag.createClass({
     getInitialState: function () {
       return { shows: [] };
     },

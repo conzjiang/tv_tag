@@ -2,6 +2,11 @@
   var TvTag = root.TvTag = root.TvTag || {};
 
   var FetchTv = TvTag.FetchTv = React.createClass({
+    propTypes: {
+      addShows: React.PropTypes.func,
+      category: React.PropTypes.string
+    },
+
     render: function () {
       return <button onClick={this.fetch}>{this.props.category}</button>;
     },
