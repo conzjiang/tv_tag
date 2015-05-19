@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519153308) do
+ActiveRecord::Schema.define(version: 20150519203054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20150519153308) do
 
   add_index "markers", ["category"], name: "index_markers_on_category", using: :btree
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", using: :btree
+
   create_table "tv_shows", force: :cascade do |t|
     t.integer  "tmdb_id"
     t.string   "title"
@@ -33,5 +41,6 @@ ActiveRecord::Schema.define(version: 20150519153308) do
   end
 
   add_index "tv_shows", ["title"], name: "index_tv_shows_on_title", using: :btree
+  add_index "tv_shows", ["tmdb_id"], name: "index_tv_shows_on_tmdb_id", using: :btree
 
 end
