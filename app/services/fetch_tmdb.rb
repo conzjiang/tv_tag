@@ -8,7 +8,7 @@ class FetchTmdb
   end
 
   def results
-    data.map { |result| { tmdb_id: result["id"], name: result["name"] } }
+    data.map { |result| { tmdb_id: result["id"], title: result["name"] } }
   end
 
   private
