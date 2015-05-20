@@ -3,7 +3,9 @@
   var isEnterKey = TvTag.Utils.isEnterKey;
 
   var TagForm = TvTag.TagForm = React.createClass({
-    propTypes: {},
+    propTypes: {
+      show: React.PropTypes.object
+    },
 
     getInitialState: function () {
       return { open: false, tags: [] };
@@ -29,7 +31,7 @@
               type="text"
               onKeyUp={this.addTag}
               onBlur={this.close} />
-            <button onClick={this.close}>Done</button>
+            <button type="button">Done</button>
           </div>
         );
       } else {
